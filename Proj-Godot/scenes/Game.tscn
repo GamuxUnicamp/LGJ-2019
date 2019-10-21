@@ -1,17 +1,18 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/Game.gd" type="Script" id=1]
-[ext_resource path="res://images/fundo.png" type="Texture" id=2]
-[ext_resource path="res://music.ogg" type="AudioStream" id=3]
-[ext_resource path="res://icon.png" type="Texture" id=4]
-[ext_resource path="res://fonts/number_preset.tres" type="DynamicFont" id=5]
-[ext_resource path="res://images/dragao.png" type="Texture" id=6]
-[ext_resource path="res://images/cogumelo.png" type="Texture" id=7]
-[ext_resource path="res://fonts/PenguinAttack.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://music.ogg" type="AudioStream" id=2]
+[ext_resource path="res://images/fundo.png" type="Texture" id=3]
+[ext_resource path="res://images/pergaminho.png" type="Texture" id=4]
+[ext_resource path="res://images/cogumelo.png" type="Texture" id=5]
+[ext_resource path="res://fonts/number_preset.tres" type="DynamicFont" id=6]
+[ext_resource path="res://images/dragao.png" type="Texture" id=7]
+[ext_resource path="res://images/caldeirao.png" type="Texture" id=8]
+[ext_resource path="res://fonts/PenguinAttack.ttf" type="DynamicFontData" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 180
-font_data = ExtResource( 8 )
+font_data = ExtResource( 9 )
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 1 )
@@ -23,11 +24,11 @@ wait_time = 0.5
 autostart = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 3 )
+stream = ExtResource( 2 )
 autoplay = true
 
 [node name="Background" type="Sprite" parent="."]
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 centered = false
 
 [node name="CauldronPosition" type="Position2D" parent="."]
@@ -37,6 +38,7 @@ __meta__ = {
 }
 
 [node name="GUI" type="MarginContainer" parent="."]
+editor/display_folded = true
 margin_right = 1080.0
 margin_bottom = 400.0
 __meta__ = {
@@ -78,7 +80,7 @@ margin_left = 105.0
 margin_right = 225.0
 margin_bottom = 120.0
 rect_min_size = Vector2( 120, 120 )
-texture = ExtResource( 7 )
+texture = ExtResource( 5 )
 expand = true
 stretch_mode = 6
 __meta__ = {
@@ -89,7 +91,8 @@ __meta__ = {
 margin_left = 229.0
 margin_right = 294.0
 margin_bottom = 120.0
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "10"
 
 [node name="Item_2" type="HBoxContainer" parent="GUI/Container/Background/Container"]
@@ -104,7 +107,7 @@ margin_left = 105.0
 margin_right = 225.0
 margin_bottom = 120.0
 rect_min_size = Vector2( 120, 120 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 expand = true
 stretch_mode = 6
 
@@ -112,8 +115,14 @@ stretch_mode = 6
 margin_left = 229.0
 margin_right = 294.0
 margin_bottom = 120.0
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "10"
+
+[node name="CauldronImage" type="Sprite" parent="."]
+position = Vector2( -1.60424, 1312.59 )
+texture = ExtResource( 8 )
+centered = false
 
 [node name="SpawnPoint1" type="Node2D" parent="."]
 position = Vector2( -100, 1200 )
@@ -148,6 +157,7 @@ margin_right = 1020.0
 margin_bottom = 680.0
 rect_scale = Vector2( 0.5, 0.5 )
 custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Fase completa :)"
 align = 1
 valign = 1
@@ -163,12 +173,13 @@ margin_bottom = 700.0
 rect_min_size = Vector2( 600, 250 )
 
 [node name="PlayAgain" type="Button" parent="Completed/Container/Background/Container"]
-margin_left = 99.0
+margin_left = 100.0
 margin_top = 50.0
-margin_right = 499.0
+margin_right = 500.0
 margin_bottom = 200.0
 rect_min_size = Vector2( 400, 150 )
-text = "Play Again"
+custom_fonts/font = ExtResource( 6 )
+text = "Replay"
 
 [node name="Tween" type="Tween" parent="Completed"]
 [connection signal="tween_completed" from="Tween" to="." method="_on_Tween_completed"]

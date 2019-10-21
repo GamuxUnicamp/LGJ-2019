@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
-[ext_resource path="res://images/fundo.png" type="Texture" id=2]
+[ext_resource path="res://images/fundo_sem_caldeirao.png" type="Texture" id=2]
+[ext_resource path="res://images/botao_jogar.png" type="Texture" id=3]
+[ext_resource path="res://images/botao_creditos.png" type="Texture" id=4]
+[ext_resource path="res://images/botao_sair.png" type="Texture" id=5]
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
@@ -13,13 +16,22 @@ texture = ExtResource( 2 )
 centered = false
 
 [node name="ButtonPlay" type="TextureButton" parent="."]
-margin_left = 223.795
-margin_top = 709.638
-margin_right = 897.795
-margin_bottom = 1046.64
+margin_left = 173.314
+margin_top = 706.363
+margin_right = 873.314
+margin_bottom = 1006.36
+texture_normal = ExtResource( 3 )
+
+[node name="ButtonCreditos" type="TextureButton" parent="."]
+margin_left = 177.713
+margin_top = 1104.71
+margin_right = 877.713
+margin_bottom = 1404.71
+texture_normal = ExtResource( 4 )
 
 [node name="ButtonQuit" type="TextureButton" parent="."]
-margin_left = 201.181
-margin_top = 1340.02
-margin_right = 870.181
-margin_bottom = 1704.02
+margin_left = 176.764
+margin_top = 1507.42
+margin_right = 876.764
+margin_bottom = 1807.42
+texture_normal = ExtResource( 5 )
